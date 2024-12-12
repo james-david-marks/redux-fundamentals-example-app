@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducer'
-import { loggerMiddleware, alwaysReturnHelloMiddleware, delayedMessageMiddleware } from './exampleAddons/middleware'
+import { loggerMiddleware, alwaysReturnHelloMiddleware, delayedMessageMiddleware, asyncFunctionMiddleware } from './exampleAddons/middleware'
+import { thunk } from 'redux-thunk'
 
 //import { print1, print2, print3, exampleMiddleware, printfive } from './exampleAddons/middleware'
 
@@ -14,7 +15,7 @@ import { loggerMiddleware, alwaysReturnHelloMiddleware, delayedMessageMiddleware
 //const middlewareEnhancer = applyMiddleware(loggerMiddleware, alwaysReturnHelloMiddleware, delayedMessageMiddleware)
 
 const composedWdtEnhancer = composeWithDevTools(
-    applyMiddleware(loggerMiddleware, alwaysReturnHelloMiddleware, delayedMessageMiddleware)
+    applyMiddleware(loggerMiddleware, alwaysReturnHelloMiddleware, delayedMessageMiddleware, thunk, asyncFunctionMiddleware )
 )
 
 //const store = createStore(rootReducer, undefined, composedEnhancer)

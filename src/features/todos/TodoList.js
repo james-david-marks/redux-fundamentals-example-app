@@ -3,6 +3,7 @@ import React from 'react'
 import { Container, Row, Col } from 'reactstrap';
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
+import { updateTodo } from '../../model/todoCollection'
 
 import TodoListItem from './TodoListItem'
 
@@ -35,19 +36,13 @@ const selectFilteredTodos = state => {
   return filteredTodos
 }
 
-const altColorDropDown = () => {
-  return "foo"
-}
-console.log(altColorDropDown)
-
 const TodoList = () => {
 
   const dispatch = useDispatch()
 
-  const onCompletedChange = (id) =>  {
-    console.log(id)
-
-    dispatch({ type: 'todos/todoToggled', payload: id} )
+  const onCompletedChange = (todo) =>  {
+    dispatch(updateTodo(todo))
+    //dispatch({ type: 'todos/todoToggled', payload: id} )
   }
   
   const todos = useSelector(selectFilteredTodos)
