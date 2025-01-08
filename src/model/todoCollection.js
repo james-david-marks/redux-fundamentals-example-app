@@ -2,12 +2,15 @@
 import { dispatchesLoad } from '../dispatchesLoad'
 import { availableColors } from '../features/filters/filtersSlice'
 import axios from 'axios';
+import { todosLoaded } from '../features/todos/todosActions';
 
 //const url = 'fakeApi/todos'
 //const postUrl = 'fakeApi/todos'
-const url = 'http://localhost:8080/andromeda/react/getTodos'
-const postUrl = 'http://localhost:8080/andromeda/react/addTodo'
-const postUpdateUrl = 'http://localhost:8080/andromeda/react/updateTodo'
+//const hostserver = 'http://localhost:8081'
+const hostserver = 'http://jimmarks.net'
+const url = hostserver + '/apihost/api/getTodos'
+const postUrl = hostserver + '/apihost/api/addTodo'
+const postUpdateUrl = hostserver + '/apihost/api/updateTodo'
 
 const client = axios
 
@@ -40,7 +43,8 @@ export async function fetchTodos(dispatch, getState) {
   const response = await client.get(url)
   const stateBefore = getState()
   console.log('Todos before dispatch: ', stateBefore.todos.length)
-  dispatch({ type: 'todos/todosLoaded', payload: response.data })
+  //dispatch({ type: 'todos/todosLoaded', payload: response.data })
+  dispatch(todosLoaded(response.data))
   const stateAfter = getState()
   console.log('Todos after dispatch: ', stateAfter.todos.length)
   //dispatchesLoad()
@@ -62,7 +66,7 @@ export async function fetchTodos(dispatch, getState) {
 export function saveNewTodo(text)
 {
   return async function saveNewTodoThunk(dispatch, getState) {
-    const initialTodo = { text }
+    //const initialTodo = { text }
     const headers = {'Content-Type' : 'application/json'}
     const response = await client.post(postUrl, { text: text }, {headers: headers})
     dispatch({ type: 'todos/todoAddedByThunk', payload: response.data.todo })

@@ -5,7 +5,7 @@ import store from './store'
 //import './api/server'
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
-import { fetchSomeData } from './model/todoCollection'
+//import { fetchSomeData } from './model/todoCollection'
 import { fetchTodos } from './model/todoCollection'
 import 'bootstrap/dist/css/bootstrap.min.css'
 

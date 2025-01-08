@@ -1,5 +1,5 @@
-import { client } from '../../api/client'
-import { dispatchesLoad } from '../../dispatchesLoad'
+//import { client } from '../../api/client'
+//import { dispatchesLoad } from '../../dispatchesLoad'
 
 const initialState = [
     // { id: 0, text: "Learn React", completed: true },
@@ -40,7 +40,7 @@ export default function todosReducer(state = initialState, action) {
     }
     case "todos/todoToggled": {
       return state.map((todo) => {
-        if (todo.id !== action.payload && todo.id != Number(action.payload)) {
+        if (todo.id !== action.payload && todo.id !== Number(action.payload)) {
           return todo;
         }
         return {
@@ -51,7 +51,7 @@ export default function todosReducer(state = initialState, action) {
     }
     case "todos/todoUpdatedByThunk": {
        return state.map((todo) => {
-        if (todo.id !== action.payload.id && todo.id != Number(action.payload.id)) {
+        if (todo.id !== action.payload.id && todo.id !== Number(action.payload.id)) {
           return todo;
         }
         return {
@@ -64,7 +64,7 @@ export default function todosReducer(state = initialState, action) {
     }
     case "todos/todoSetColor": {
       return state.map((todo) => {
-        if (todo.id !== action.payload.id && todo.id != Number(action.payload.id)) {
+        if (todo.id !== action.payload.id && todo.id !== Number(action.payload.id)) {
           return todo;
         }
         return {

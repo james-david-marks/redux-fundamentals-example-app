@@ -1,6 +1,6 @@
 import React from 'react'
-import { Container, Row, Col } from 'reactstrap';
-import { availableColors, capitalize } from '../filters/filtersSlice'
+import { Row, Col } from 'reactstrap';
+import { availableColors } from '../filters/filtersSlice'
 import { useDispatch } from 'react-redux'
 import { updateTodo } from '../../model/todoCollection'
 
