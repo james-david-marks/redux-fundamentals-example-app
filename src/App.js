@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './features/header/Header'
+import Edit from './features/Edit'
 import TodoList from './features/todos/TodoList'
 import Footer from './features/footer/Footer'
 
@@ -8,14 +9,14 @@ function App() {
     <div className="App">
       <nav>
         <section>
-          <h1>Redux Fundamentals Example</h1>
+          <h1>Todos</h1>
         </section>
       </nav>
       <main>
         <section className="medium-container">
-          <h2>Todos</h2>
           <div className="todoapp">
             <Header />
+            <Edit />
             <TodoList />
             <Footer />
           </div>

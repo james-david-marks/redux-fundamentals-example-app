@@ -6,7 +6,7 @@ import { todosLoaded } from '../features/todos/todosActions';
 
 //const url = 'fakeApi/todos'
 //const postUrl = 'fakeApi/todos'
-//const hostserver = 'http://localhost:8081'
+//const hostserver = 'http://localhost:8080'
 const hostserver = 'http://jimmarks.net'
 const url = hostserver + '/apihost/api/getTodos'
 const postUrl = hostserver + '/apihost/api/addTodo'

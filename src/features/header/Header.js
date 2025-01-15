@@ -22,7 +22,17 @@ const Header = () => {
     }
   }
 
+  const handleTouchEnd = e => {
+    handleMouseUp(e);
+  }
+
+  const handleMouseUp = e => {
+    console.log('mouse event on input');
+    dispatch({ type: 'global/showEditToggle'});
+  }
+
   return (
+    <>
     <input
       type="text"
       placeholder="What needs to be done?"
@@ -30,7 +40,10 @@ const Header = () => {
       value={text}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
+      onMouseUp={(handleMouseUp)}
+      onTouchEnd={(handleTouchEnd)}
     />
+    </>
   )
 }
 
