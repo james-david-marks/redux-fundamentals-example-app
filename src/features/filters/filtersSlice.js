@@ -9,7 +9,7 @@ export const StatusFilters = {
 }
 
 const initialState = {
-    status: "All",
+    status: "Active",
     colors: [],
   };
 
