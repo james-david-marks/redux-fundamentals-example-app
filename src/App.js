@@ -1,6 +1,5 @@
 import React from 'react'
-import Header from './features/header/Header'
-import Edit from './features/Edit'
+import Edit from './features/edit/Edit'
 import TodoList from './features/todos/TodoList'
 import Footer from './features/footer/Footer'
 
@@ -15,7 +14,6 @@ function App() {
       <main>
         <section className="medium-container">
           <div className="todoapp">
-            <Header />
             <Edit />
             <TodoList />
             <Footer />

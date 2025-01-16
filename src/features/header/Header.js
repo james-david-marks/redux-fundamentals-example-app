@@ -25,9 +25,8 @@ const Header = () => {
   const handleTouchEnd = e => {
     handleMouseUp(e);
   }
-
   const handleMouseUp = e => {
-    console.log('mouse event on input');
+    console.log('mouse event on input (header)');
     dispatch({ type: 'global/showEditToggle'});
   }
 

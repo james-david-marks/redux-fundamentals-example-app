@@ -11,6 +11,12 @@ export default function globalReducer(state = initialState, action) {
         showEdit: !state.showEdit
       }
     }
+    case "global/newTodoColor": {
+      return {
+        ...state,
+        newTodoColor: action.payload
+      }
+    }
     default: {
       return state;
     }
