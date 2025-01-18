@@ -63,12 +63,12 @@ export async function fetchTodos(dispatch, getState) {
 //   }
 // }
 
-export function saveNewTodo(text)
+export function saveNewTodo(text, color)
 {
   return async function saveNewTodoThunk(dispatch, getState) {
     //const initialTodo = { text }
     const headers = {'Content-Type' : 'application/json'}
-    const response = await client.post(postUrl, { text: text }, {headers: headers})
+    const response = await client.post(postUrl, { text: text, color: color }, {headers: headers})
     dispatch({ type: 'todos/todoAddedByThunk', payload: response.data.todo })
     //let color = availableColors[response.todo.id%availableColors.length]
     //dispatch({ type: 'todos/todoSetColor', payload: {id: response.todo.id, color: color} })

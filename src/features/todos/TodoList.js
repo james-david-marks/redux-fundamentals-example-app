@@ -44,7 +44,7 @@ const TodoList = () => {
     dispatch(updateTodo(todo))
     //dispatch({ type: 'todos/todoToggled', payload: id} )
   }
-  
+
   const todos = useSelector(selectFilteredTodos)
   //const todos = useSelector(state => state.todos)
 

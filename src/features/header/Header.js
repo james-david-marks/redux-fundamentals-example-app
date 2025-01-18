@@ -16,7 +16,7 @@ const Header = () => {
   //    dispatch({ type: 'todos/todoAdded', payload: trimmedText })
       // And clear out the text input
 
-      dispatch(saveNewTodo(trimmedText))
+      dispatch(saveNewTodo(trimmedText, ''))
 
       setText('')
     }

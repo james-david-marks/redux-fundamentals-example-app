@@ -313,6 +313,31 @@ main h2 {
   overflow-y: auto;
 }
 
+.todo-edit {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.todo-editform {
+  margin: 20;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.todo-editform-buttonpanel {
+  padding: 20px;
+  text-align: right;
+}
+
 ul.todo-list {
   list-style: none;
 }

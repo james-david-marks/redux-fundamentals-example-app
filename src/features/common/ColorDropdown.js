@@ -1,7 +1,7 @@
 import React from 'react'
 import { availableColors } from '../filters/filtersSlice'
 
-function ColorDropdown({onChange}){
+function ColorDropdown({color, onChange}){
 
     const colorDropdownEntries = ['', ...availableColors]
     const colorOptions =
@@ -16,7 +16,7 @@ function ColorDropdown({onChange}){
 
     return (
         <div>
-        <select className="select" name="colors" onChange={handleSelectChange} id="colors">
+        <select className="select" value={color} name="colors" onChange={handleSelectChange} id="colors">
             {colorOptions}
         </select>
         </div>
