@@ -1,4 +1,5 @@
 export const availableColors = ['blue', 'green', 'orange', 'purple', 'red']
+export const availableGroups = ['DATABLOKS', 'D&K', 'FINANCE', 'HOUSEHOLD', 'ISBA', 'PERSONAL', 'SALTZMAN ESTATE', 'SOFTWARE PROJECTS']
 
 export const capitalize = (s) => s[0].toUpperCase() + s.slice(1)
 
@@ -11,6 +12,7 @@ export const StatusFilters = {
 const initialState = {
     status: "Active",
     colors: [],
+    groups: [],
   };
 
   export default function filtersReducer(state = initialState, action) {

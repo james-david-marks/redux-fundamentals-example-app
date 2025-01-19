@@ -4,6 +4,7 @@ import Header from '../header/Header'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import ColorDropdown from '../common/ColorDropdown'
+import GroupDropdown from '../common/GroupDropdown'
 import { DbTextField, DbButtonSecondary, DbButton } from "../common/Controls";
 import { saveNewTodo } from '../../model/todoCollection'
 
@@ -14,10 +15,15 @@ const showEditStatus  = state => {
 const showNewTodoColor  = state => {
     return state.global.newTodoColor;
 }
+const showNewTodoGroup  = state => {
+    return state.global.newTodoGroup;
+}
+
 
 const Edit = () => {
     const show = useSelector(showEditStatus)
     const color = useSelector(showNewTodoColor)
+    const group = useSelector(showNewTodoGroup)
     const dispatch = useDispatch()
 
     const handleTouchEnd = e => {
@@ -27,7 +33,7 @@ const Edit = () => {
         dispatch({ type: 'global/showEditToggle'});
     }
     const handleSave = e => {
-        const trimmedText = document.getElementById('edittext').value.trim();
+        const trimmedText = group + ': ' + document.getElementById('edittext').value.trim();
         console.log('text: ' + trimmedText + ", color: " + color)
         dispatch(saveNewTodo(trimmedText, color))
         dispatch({ type: 'global/showEditToggle'});
@@ -39,8 +45,13 @@ const Edit = () => {
     {
         dispatch({ type: 'global/newTodoColor', payload: color})
     }
-
+    const onGroupChange = (group) =>
+    {
+        dispatch({ type: 'global/newTodoGroup', payload: group})
+    }
+    
     let colorDropDown = <ColorDropdown color={color} onChange={onColorChange}/>
+    let groupDropDown = <GroupDropdown group={group} onChange={onGroupChange}/>
     
     let html = show ? <div className="todo-edit">
                         <Row className={color} >
@@ -54,12 +65,13 @@ const Edit = () => {
                             /></Col>
                         </Row>
                         <Row className={color}>
-                                <Col xs="8" /><Col xs="1"><Label>Color</Label></Col><Col xs="3">{colorDropDown}</Col>
+                                <Col xs="1"><Label>Group</Label></Col><Col xs="3">{groupDropDown}</Col>
+                                <Col xs="4" />
+                                <Col xs="1"><Label>Color</Label></Col><Col xs="3">{colorDropDown}</Col>
                         </Row>
                         <div className="todo-editform" >
                             <Row>
-                                <Col xs="8" />
-                                <Col xs="4">
+                                <Col xs="12">
                                     <div className="todo-editform-buttonpanel" >
                                         <DbButton label="Save" onClick={handleSave} />
                                         <DbButtonSecondary label="Cancel" onClick={handleCancel} />

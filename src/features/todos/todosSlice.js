@@ -35,8 +35,20 @@ export default function todosReducer(state = initialState, action) {
           text: action.payload.text,
           completed: action.payload.completed,
           color: action.payload.color,
+          archived: action.payload.archived,
         },
       ];
+    }
+    case "todos/todoToggledArchive": {
+      return state.map((todo) => {
+        if (todo.id !== action.payload && todo.id !== Number(action.payload)) {
+          return todo;
+        }
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      });
     }
     case "todos/todoToggled": {
       return state.map((todo) => {
@@ -59,6 +71,7 @@ export default function todosReducer(state = initialState, action) {
             completed: action.payload.completed,
             text: action.payload.text,
             color: action.payload.color, 
+            archived: action.payload.archived,
         };
       });
     }

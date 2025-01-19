@@ -7,6 +7,7 @@ create table todos
     , text varchar(100)
     , completed bit
     , color varchar(30)
+    , archived bit
     , PRIMARY KEY (`id`)
 );
 
